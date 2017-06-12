@@ -38,10 +38,29 @@ namespace {
 // Tests that Foo does Xyz.
     TEST_F(FooTest, SortTest) {
 
-        std::vector<int> array;
-        array.push_back(3);
-        array.push_back(2);
-        array.push_back(1);
+        std::vector<int> array = { 3, 2, 1 };
+
+        InsertionSort::Sort(array);
+
+        EXPECT_EQ(1, array[0]);
+        EXPECT_EQ(2, array[1]);
+        EXPECT_EQ(3, array[2]);
+    }
+
+    TEST_F(FooTest, SortTest2) {
+
+        std::vector<int> array = { 2, 3, 1 };
+
+        InsertionSort::Sort(array);
+
+        EXPECT_EQ(1, array[0]);
+        EXPECT_EQ(2, array[1]);
+        EXPECT_EQ(3, array[2]);
+    }
+
+    TEST_F(FooTest, AlreadySorted) {
+
+        std::vector<int> array = { 1, 2, 3 };
 
         InsertionSort::Sort(array);
 

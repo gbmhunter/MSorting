@@ -3,13 +3,16 @@
 class InsertionSort {
 public:
 
-    static void Sort(std::vector<int>& array) {
+    template <typename Container>
+    static void Sort(Container& array) {
 
         // Treat the first element as sorted
-        std::vector<int>::iterator i = array.begin();
+        typename Container::iterator i = array.begin();
         i++;
         for(; i != array.end(); i++) {
-            for(std::vector<int>::iterator j = i; j != array.begin(); j--) {
+
+            // Loop which iterates downwards towards the start of the container
+            for(typename Container::iterator j = i; j != array.begin(); j--) {
                 // Compare with previous element
                 if(*j > *(j-1)) {
                     // Element is in correct position, go back to parent loop
