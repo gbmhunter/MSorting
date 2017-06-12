@@ -29,6 +29,7 @@ endif()
 # Now simply link your own targets against gtest, gmock,
 # etc. as appropriate
 
+include_directories(src/include)
 
 add_subdirectory(src)
 add_subdirectory(test)
