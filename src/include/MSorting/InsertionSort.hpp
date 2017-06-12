@@ -3,25 +3,21 @@
 class InsertionSort {
 public:
 
-    InsertionSort() {
-    }
-
-    ~InsertionSort() {}
-
     static void Sort(std::vector<int>& array) {
 
         // Treat the first element as sorted
-        for(int i = 1; i < array.size(); i++) {
-
-            for(int j = i; j > 0; j--) {
+        std::vector<int>::iterator i = array.begin();
+        i++;
+        for(; i != array.end(); i++) {
+            for(std::vector<int>::iterator j = i; j != array.begin(); j--) {
                 // Compare with previous element
-                if(array[j] > array[j-1]) {
+                if(*j > *(j-1)) {
                     // Element is in correct position, go back to parent loop
                     break;
                 } else {
                     // Element still needs to move down array, swap this preceding
                     // element and continue on loop
-                    std::swap(array[j], array[j-1]);
+                    iter_swap(j, j-1);
                 }
             }
         }
