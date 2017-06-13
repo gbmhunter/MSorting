@@ -1,42 +1,42 @@
 #include "gtest/gtest.h"
 
-#include "MSorting/InsertionSort.hpp"
+#include "MSorting/SelectionSort.hpp"
 
 namespace {
-
-    class InsertionSortTest : public ::testing::Test {
+    
+    class SelectionSortTest : public ::testing::Test {
     protected:
 
-        InsertionSortTest() {
+        SelectionSortTest() {
         }
 
-        virtual ~InsertionSortTest() {
+        virtual ~SelectionSortTest() {
         }
     };
 
-    TEST_F(InsertionSortTest, ReverseOrderTest) {
+    TEST_F(SelectionSortTest, ReverseOrderTest) {
 
         std::vector<int> array = { 3, 2, 1 };
 
-        InsertionSort::Sort(array);
+        SelectionSort::Sort(array);
 
         EXPECT_EQ(std::vector<int>({ 1, 2, 3 }), array);
     }
 
-    TEST_F(InsertionSortTest, SortTest2) {
+    TEST_F(SelectionSortTest, SortTest2) {
 
         std::vector<int> array = { 2, 3, 1 };
 
-        InsertionSort::Sort(array);
+        SelectionSort::Sort(array);
 
         EXPECT_EQ(std::vector<int>({ 1, 2, 3 }), array);
     }
 
-    TEST_F(InsertionSortTest, AlreadySorted) {
+    TEST_F(SelectionSortTest, AlreadySorted) {
 
         std::vector<int> array = { 1, 2, 3 };
 
-        InsertionSort::Sort(array);
+        SelectionSort::Sort(array);
 
         EXPECT_EQ(std::vector<int>({ 1, 2, 3 }), array);
     }
