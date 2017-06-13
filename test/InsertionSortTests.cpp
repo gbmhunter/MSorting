@@ -5,68 +5,41 @@
 namespace {
 
 // The fixture for testing class Foo.
-    class FooTest : public ::testing::Test {
+    class InsertionSortTest : public ::testing::Test {
     protected:
-        // You can remove any or all of the following functions if its body
-        // is empty.
 
-        FooTest() {
-            // You can do set-up work for each test here.
+        InsertionSortTest() {
         }
 
-        virtual ~FooTest() {
-            // You can do clean-up work that doesn't throw exceptions here.
+        virtual ~InsertionSortTest() {
         }
-
-        // If the constructor and destructor are not enough for setting up
-        // and cleaning up each test, you can define the following methods:
-
-        virtual void SetUp() {
-            // Code here will be called immediately after the constructor (right
-            // before each test).
-        }
-
-        virtual void TearDown() {
-            // Code here will be called immediately after each test (right
-            // before the destructor).
-        }
-
-        // Objects declared here can be used by all tests in the test case for Foo.
     };
 
-
-// Tests that Foo does Xyz.
-    TEST_F(FooTest, SortTest) {
+    TEST_F(InsertionSortTest, ReverseOrderTest) {
 
         std::vector<int> array = { 3, 2, 1 };
 
         InsertionSort::Sort(array);
 
-        EXPECT_EQ(1, array[0]);
-        EXPECT_EQ(2, array[1]);
-        EXPECT_EQ(3, array[2]);
+        EXPECT_EQ(std::vector<int>({ 1, 2, 3 }), array);
     }
 
-    TEST_F(FooTest, SortTest2) {
+    TEST_F(InsertionSortTest, SortTest2) {
 
         std::vector<int> array = { 2, 3, 1 };
 
         InsertionSort::Sort(array);
 
-        EXPECT_EQ(1, array[0]);
-        EXPECT_EQ(2, array[1]);
-        EXPECT_EQ(3, array[2]);
+        EXPECT_EQ(std::vector<int>({ 1, 2, 3 }), array);
     }
 
-    TEST_F(FooTest, AlreadySorted) {
+    TEST_F(InsertionSortTest, AlreadySorted) {
 
         std::vector<int> array = { 1, 2, 3 };
 
         InsertionSort::Sort(array);
 
-        EXPECT_EQ(1, array[0]);
-        EXPECT_EQ(2, array[1]);
-        EXPECT_EQ(3, array[2]);
+        EXPECT_EQ(std::vector<int>({ 1, 2, 3 }), array);
     }
 
 }  // namespace
